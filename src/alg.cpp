@@ -1,20 +1,10 @@
 // Copyright 2021 NNTU-CS
-
+#include "alg.h"
 int gcd(int a, int b) {
-  int nod = 0;
-  if (a > b) {
-    nod = b;
-    while (!(a % b == 0)) {
-      nod = a % b;
-      a = b;
-    }
+  while (b) {
+    int nod = b;
+    b = a % b;
+    a = nod;
   }
-  else {
-    nod = a;
-    while (!(b % a == 0)) {
-      nod = b % a;
-      b = a;
-    }
-  }
-  return nod;
+  return a;
 }
